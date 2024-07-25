@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">session_2</string>
+    <string name="first_part_of_meme">First part of meme</string>
+    <string name="second_part_of_meme">Second part of meme</string>
+    <string name="third_part_of_meme">Third part of meme</string>
+    <string name="forth_part_of_meme">Forth part of meme</string>
+</resources>

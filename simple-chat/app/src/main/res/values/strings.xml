@@ -1,0 +1,9 @@
+<resources>
+<string name="app_name">recyclerViewTask</string>
+<string name="user_image">user image</string>
+<string name="inbox">Inbox</string>
+<string name="search">search</string>
+<string name="user_name">Ahmed Ramadan</string>
+<string name="user_message">Hello Ali, I am Ahmed</string>
+<string name="three_lines">three lines</string>
+</resources>
