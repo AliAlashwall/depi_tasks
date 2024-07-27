@@ -1,4 +1,4 @@
-package com.example.detailsscreen.presentation.screens
+package com.example.detailsscreen.presentation.screens.detailsScreen
 
 import android.annotation.SuppressLint
 import androidx.annotation.IdRes
@@ -35,12 +35,12 @@ import com.example.detailsscreen.presentation.theme.buttonColor
 
 @SuppressLint("ResourceType")
 @Composable
-fun DetailsScreen() {
+fun DetailsScreen(modifier: Modifier = Modifier) {
     Scaffold(
         topBar = { DetailsTopBar() },
     ) { paddingValues ->
         Column(
-            Modifier
+            modifier = modifier
                 .fillMaxSize()
                 .padding(paddingValues)
                 .background(background)
@@ -55,7 +55,7 @@ fun DetailsScreen() {
             )
 
             Text(
-                text = stringResource(R.string.language),
+                text = stringResource(R.string.details_screen_language),
                 style = MaterialTheme.typography.titleLarge
             )
 
@@ -63,20 +63,23 @@ fun DetailsScreen() {
                 Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceAround
             ) {
-                TextWithIcon(text = stringResource(R.string.rate), iconId = R.drawable.star)
                 TextWithIcon(
-                    text = stringResource(R.string.python),
+                    text = stringResource(R.string.details_screen_rate),
+                    iconId = R.drawable.star
+                )
+                TextWithIcon(
+                    text = stringResource(R.string.details_screen_programming_language),
                     iconId = R.drawable.blue_circle
                 )
                 TextWithIcon(
-                    text = stringResource(R.string.github_score),
+                    text = stringResource(R.string.details_screen_github_score),
                     iconId = R.drawable.new_branch
                 )
             }
 
             Text(
-                text = stringResource(R.string.description),
-                style = MaterialTheme.typography.bodyLarge
+                text = stringResource(R.string.details_screen_description),
+                style = MaterialTheme.typography.bodyMedium
             )
 
             Spacer(modifier = Modifier.weight(1f))
@@ -88,7 +91,7 @@ fun DetailsScreen() {
                 colors = ButtonDefaults.buttonColors(buttonColor)
             ) {
                 Text(
-                    text = stringResource(R.string.show_issues),
+                    text = stringResource(R.string.details_screen_show_issues),
                     style = MaterialTheme.typography.titleLarge,
                     color = Color.White,
                     modifier = Modifier.padding(8.dp)
@@ -108,12 +111,10 @@ fun TextWithIcon(
     Row(
         verticalAlignment = Alignment.CenterVertically,
     ) {
-
-
         Text(
             text = text,
             textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.bodyLarge
+            style = MaterialTheme.typography.bodyMedium
         )
         Spacer(modifier = Modifier.width(8.dp))
         Image(
@@ -140,7 +141,7 @@ fun DetailsTopBar() {
             Modifier.size(24.dp)
         )
         Text(
-            text = stringResource(R.string.details),
+            text = stringResource(R.string.details_screen_name),
             modifier = Modifier.fillMaxWidth(),
             textAlign = TextAlign.Center,
             style = MaterialTheme.typography.titleLarge
