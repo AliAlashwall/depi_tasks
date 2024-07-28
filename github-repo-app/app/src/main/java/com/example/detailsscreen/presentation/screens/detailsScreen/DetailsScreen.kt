@@ -1,7 +1,6 @@
 package com.example.detailsscreen.presentation.screens.detailsScreen
 
 import android.annotation.SuppressLint
-import androidx.annotation.IdRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -10,10 +9,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
@@ -25,10 +22,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.detailsscreen.R
+import com.example.detailsscreen.presentation.screens.detailsScreen.component.TextWithIcon
 import com.example.detailsscreen.presentation.theme.DetailsScreenTheme
 import com.example.detailsscreen.presentation.theme.background
 import com.example.detailsscreen.presentation.theme.buttonColor
@@ -98,54 +95,6 @@ fun DetailsScreen(modifier: Modifier = Modifier) {
                 )
             }
         }
-    }
-}
-
-@SuppressLint("ResourceType")
-@Composable
-fun TextWithIcon(
-    text: String,
-    @IdRes iconId: Int
-) {
-
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        Text(
-            text = text,
-            textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.bodyMedium
-        )
-        Spacer(modifier = Modifier.width(8.dp))
-        Image(
-            painter = painterResource(id = iconId),
-            contentDescription = null,
-            Modifier.size(24.dp)
-        )
-    }
-}
-
-@Composable
-fun DetailsTopBar() {
-
-    Row(
-        Modifier
-            .height(70.dp)
-            .fillMaxWidth()
-            .padding(16.dp), verticalAlignment = Alignment.CenterVertically
-    ) {
-
-        Image(
-            painter = painterResource(id = R.drawable.back_arrrow),
-            contentDescription = null,
-            Modifier.size(24.dp)
-        )
-        Text(
-            text = stringResource(R.string.details_screen_name),
-            modifier = Modifier.fillMaxWidth(),
-            textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.titleLarge
-        )
     }
 }
 
