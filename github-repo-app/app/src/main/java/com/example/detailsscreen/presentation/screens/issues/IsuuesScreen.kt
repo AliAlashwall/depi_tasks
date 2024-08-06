@@ -24,6 +24,7 @@ import com.example.detailsscreen.presentation.theme.background
 fun IssuesScreen(
     issueList: List<IssuesData>,
     onBackClicked: () -> Unit,
+    onIssueItemClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Scaffold(
@@ -37,6 +38,7 @@ fun IssuesScreen(
         containerColor = MaterialTheme.colorScheme.background,
         modifier = modifier
     ) { paddingValues ->
+        
         LazyColumn(
             contentPadding = paddingValues,
             modifier = Modifier
@@ -45,7 +47,10 @@ fun IssuesScreen(
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             items(issueList.size) { index ->
-                IssueItem(issuesData = issueList[index])
+                IssueItem(
+                    issuesData = issueList[index],
+                    onIssuesClicked = onIssueItemClicked
+                )
             }
         }
     }
@@ -56,6 +61,10 @@ fun IssuesScreen(
 @Composable
 private fun IssueScreenPreview() {
     GithubRepoTheme {
-        IssuesScreen(issueList = issueDataList, onBackClicked = {})
+        IssuesScreen(
+            issueList = issueDataList,
+            onBackClicked = {},
+            onIssueItemClicked = {}
+        )
     }
 }

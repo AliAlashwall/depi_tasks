@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 import com.example.detailsscreen.R
 
 @Composable
-fun DetailsTopBar() {
+fun DetailsTopBar(onBackClicked: () -> Unit) {
     Row(
         Modifier
             .height(70.dp)

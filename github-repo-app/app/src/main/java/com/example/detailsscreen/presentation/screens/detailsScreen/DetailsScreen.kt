@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -25,16 +26,27 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.detailsscreen.R
+import com.example.detailsscreen.presentation.component.AppBar
 import com.example.detailsscreen.presentation.screens.detailsScreen.component.TextWithIcon
 import com.example.detailsscreen.presentation.theme.GithubRepoTheme
 import com.example.detailsscreen.presentation.theme.background
 import com.example.detailsscreen.presentation.theme.buttonColor
 
+@ExperimentalMaterial3Api
 @SuppressLint("ResourceType")
 @Composable
-fun DetailsScreen(modifier: Modifier = Modifier) {
+fun DetailsScreen(
+    modifier: Modifier = Modifier,
+    onBackClicked: () -> Unit,
+    onShowIssueClicked: () -> Unit
+) {
     Scaffold(
-        topBar = { DetailsTopBar() },
+        topBar = {
+            AppBar(
+                title = stringResource(R.string.details_screen_name),
+                onBackArrowClicked = onBackClicked
+            )
+        },
     ) { paddingValues ->
         Column(
             modifier = modifier
@@ -82,7 +94,7 @@ fun DetailsScreen(modifier: Modifier = Modifier) {
             Spacer(modifier = Modifier.weight(1f))
 
             Button(
-                onClick = {},
+                onClick = onShowIssueClicked,
                 modifier = Modifier.fillMaxWidth(),
                 shape = MaterialTheme.shapes.medium,
                 colors = ButtonDefaults.buttonColors(buttonColor)
@@ -98,8 +110,9 @@ fun DetailsScreen(modifier: Modifier = Modifier) {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Preview(showSystemUi = true)
 @Composable
 private fun DetailsScreesPreview() {
-    GithubRepoTheme { DetailsScreen() }
+    GithubRepoTheme { DetailsScreen(modifier = Modifier, {}) {} }
 }

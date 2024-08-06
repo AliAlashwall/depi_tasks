@@ -1,6 +1,7 @@
 package com.example.detailsscreen.presentation.screens.issues
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -33,9 +34,15 @@ import com.example.detailsscreen.data.IssuesData
 import com.example.detailsscreen.presentation.theme.GithubRepoTheme
 
 @Composable
-fun IssueItem(issuesData: IssuesData) {
+fun IssueItem(
+    issuesData: IssuesData,
+    onIssuesClicked: () -> Unit,
+    modifier: Modifier = Modifier
+) {
     Card(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier
+            .fillMaxWidth()
+            .clickable { onIssuesClicked() },
         shape = MaterialTheme.shapes.medium,
         colors = CardDefaults.cardColors(Color.White)
     ) {
@@ -110,7 +117,8 @@ private fun IssueItemPreview() {
                 title = "Bump pyarrow from 5.0.0 to 5.0.0",
                 content = "NONE",
                 dateCreated = "2023-08-06, 12:00 PM",
-            )
+            ),
+            onIssuesClicked = {}
         )
     }
 }
