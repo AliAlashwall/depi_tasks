@@ -9,7 +9,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -24,7 +23,8 @@ import com.example.detailsscreen.presentation.theme.background
 @Composable
 fun IssuesScreen(
     issueList: List<IssuesData>,
-    onBackClicked: () -> Unit
+    onBackClicked: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
     Scaffold(
         topBar = {
@@ -34,11 +34,14 @@ fun IssuesScreen(
                 onBackArrowClicked = onBackClicked
             )
         },
-        containerColor = MaterialTheme.colorScheme.background
+        containerColor = MaterialTheme.colorScheme.background,
+        modifier = modifier
     ) { paddingValues ->
         LazyColumn(
             contentPadding = paddingValues,
-            modifier = Modifier.background(background).padding(8.dp),
+            modifier = Modifier
+                .background(background)
+                .padding(8.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             items(issueList.size) { index ->
@@ -53,8 +56,6 @@ fun IssuesScreen(
 @Composable
 private fun IssueScreenPreview() {
     GithubRepoTheme {
-        IssuesScreen(issueList = issueDataList) {
-
-        }
+        IssuesScreen(issueList = issueDataList, onBackClicked = {})
     }
 }

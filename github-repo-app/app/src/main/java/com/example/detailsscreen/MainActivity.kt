@@ -8,9 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import com.example.detailsscreen.data.IssuesData
 import com.example.detailsscreen.data.issueDataList
-import com.example.detailsscreen.presentation.screens.detailsScreen.DetailsScreen
 import com.example.detailsscreen.presentation.screens.issues.IssuesScreen
 import com.example.detailsscreen.presentation.theme.GithubRepoTheme
 
@@ -23,7 +21,9 @@ class MainActivity : ComponentActivity() {
             GithubRepoTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { paddingValues ->
 //                    DetailsScreen(modifier = Modifier.padding(paddingValues))
-                    IssuesScreen(issueList = issueDataList, onBackClicked = {})
+                    IssuesScreen(
+                        issueList = issueDataList, onBackClicked = {},
+                        modifier = Modifier.padding(paddingValues))
                 }
             }
         }
