@@ -26,7 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.detailsscreen.R
 import com.example.detailsscreen.presentation.screens.detailsScreen.component.TextWithIcon
-import com.example.detailsscreen.presentation.theme.DetailsScreenTheme
+import com.example.detailsscreen.presentation.theme.GithubRepoTheme
 import com.example.detailsscreen.presentation.theme.background
 import com.example.detailsscreen.presentation.theme.buttonColor
 
@@ -101,5 +101,5 @@ fun DetailsScreen(modifier: Modifier = Modifier) {
 @Preview(showSystemUi = true)
 @Composable
 private fun DetailsScreesPreview() {
-    DetailsScreenTheme { DetailsScreen() }
+    GithubRepoTheme { DetailsScreen() }
 }

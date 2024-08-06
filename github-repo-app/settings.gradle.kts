@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "detailsScreen"
+rootProject.name = "github-repo"
 include(":app")

@@ -14,12 +14,14 @@ private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
     secondary = PurpleGrey80,
     tertiary = Pink80,
+    background = background,
 )
 
 private val LightColorScheme = lightColorScheme(
     primary = Purple40,
     secondary = PurpleGrey40,
     tertiary = Pink40,
+    background = background,
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),
@@ -33,7 +35,7 @@ private val LightColorScheme = lightColorScheme(
 )
 
 @Composable
-fun DetailsScreenTheme(
+fun GithubRepoTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
